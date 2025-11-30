@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Odyssey Technologies - Authorized Service Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- BRAND COLORS --- */
+        :root {
+            --color-black: #0D0D0D; 
+            --color-dark-grey: #1A1A1A;
+            --color-white: #FFFFFF;
+            --color-cool-grey: #BFBFBF; 
+            --color-silver: #C9C9C9; 
+            --accent-orange: #FF6900; 
+            --accent-red: #E50219; 
+        }
+
+        body { 
+            font-family: 'Source Sans Pro', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: var(--color-black);
+            color: var(--color-white);
+            line-height: 1.6;
+            position: relative; 
+            min-height: 100vh; 
+        }
+        
+        /* 🎨 ANIMATED BACKGROUND CONTAINER (Fixed) */
+        .animated-background {
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10; 
+            overflow: hidden; 
+            background-color: var(--color-black);
+        }
+
+        /* Darker, Subtler Overlay */
+        .animated-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); 
+            z-index: -9; 
+        }
+
+        /* Animated Image/GIF Styles */
+        .animated-bg-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            
+            background-image: url('https://i.postimg.cc/xC5zXgWz/Gemini-Generated-Image-691o3n691o3n691o.png'); 
+            
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.6; 
+            animation: panBackground 40s linear infinite; 
+        }
+
+        @keyframes panBackground {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* HEADER & FOOTER: Now highly transparent */
+        header, footer {
+            background: rgba(13, 13, 13, 0.05); 
+            padding: 20px 10px; 
+            text-align: center; 
+            animation: fadeInUp 1s ease-out; 
+            border-bottom: 2px solid var(--color-silver);
+            position: relative; 
+            z-index: 10;
+        }
+        footer { border-bottom: none; border-top: 1px solid var(--color-silver); margin-top: 20px;}
+
+        h1 {
+            font-size: 1.8em; 
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            color: var(--color-white);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+        }
+        header p {
+            font-size: 0.9em;
+            color: var(--color-cool-grey);
+            font-weight: 300;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+        }
+        
+        /* 🖼️ SECTIONS: Highly Transparent Background with Blur */
+        section { 
+            padding: 30px 20px; 
+            margin: 20px auto; 
+            max-width: 95%; 
+            position: relative; 
+            z-index: 5;
+        }
+        
+        /* Content Wrapper for Blur & Transparency */
+        .content-wrapper {
+            background: rgba(26, 26, 26, 0.05); 
+            backdrop-filter: blur(5px); 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.7); 
+            border: 1px solid var(--color-silver);
+            padding: 20px; 
+            z-index: 2; 
+        }
+        
+        /* Apply text shadow to all main text elements for readability */
+        section p, section ul, section h2, .contact-info-list li {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+        }
+        
+        h2 { 
+            font-size: 1.5em;
+            color: var(--color-white); 
+            border-bottom: 1px solid var(--color-silver); 
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9em;
+            display: block;
+            overflow-x: auto;
+        }
+        .service-table th, .service-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.2); 
+            min-width: 120px;
+        }
+        @media (max-width: 550px) {
+            .service-table th:last-child, 
+            .service-table td:last-child {
+                display: none; 
+            }
+        }
+        .service-table th {
+            background: rgba(13, 13, 13, 0.4); 
+            color: var(--color-white);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .brand-motorola { color: var(--accent-red); font-weight: bold; }
+        .brand-xiaomi { color: var(--accent-orange); font-weight: bold; }
+        
+        /* BUTTONS (CTAs) */
+        .service-cta-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center; 
+        }
+        .map-cta-container {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center; 
+        }
+        
+        button, .cta-link { 
+            width: 100%; 
+            max-width: 350px; 
+            color: var(--color-white); 
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+            border-radius: 6px; 
+            font-weight: bold; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: none; 
+        }
+
+        /* Hover Styles */
+        .btn-orange { background: var(--accent-orange); }
+        .btn-red { background: #E50219; } 
+        .btn-orange:hover { 
+            background: #ff7d29;
+            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 6px 15px rgba(255,105,0,0.4); 
+        }
+        .btn-red:hover { 
+            background: #ff293e;
+            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 6px 15px rgba(229,2,25,0.4); 
+        }
+
+        /* CONTACT SECTION STYLING */
+        .contact-info-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .contact-info-list li {
+            padding: 8px 0;
+            color: var(--color-cool-grey);
+            border-bottom: 1px dashed rgba(201, 201, 201, 0.2);
+        }
+        .contact-info-list li:last-child {
+             border-bottom: none;
+        }
+        .contact-info-list strong {
+            display: inline-block;
+            width: 80px; 
+            color: var(--color-silver);
+            font-weight: 700;
+        }
+        
+        /* FOOTER */
+        footer { 
+            color: var(--color-cool-grey);
+            text-align: center; 
+            padding: 15px; 
+            border-top: 1px solid var(--color-silver);
+            margin-top: 20px;
+            font-size: 0.8em;
+            position: relative; 
+            z-index: 10;
+        }
+        a { 
+            color: var(--accent-orange); 
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
+        a:hover { 
+            color: #ff984d; 
+        }
+
+        /* --- DESKTOP / TABLET OPTIMIZATION (min-width: 768px) --- */
+        @media (min-width: 768px) {
+            section { 
+                padding: 0; 
+            }
+            .content-wrapper {
+                padding: 40px; 
+            }
+            .service-table th:last-child, 
+            .service-table td:last-child {
+                display: table-cell; 
+            }
+            .service-table {
+                font-size: 1em;
+                display: table;
+                overflow-x: hidden;
+            }
+            .service-cta-container {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            button, .cta-link {
+                width: auto;
+                max-width: none; 
+            }
+        }
+        
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="animated-background">
+        <div class="animated-bg-image"></div>
+    </div>
+
+    <header>
+        <h1>ODYSSEY TECHNOLOGIES</h1>
+        <p>MOTOROLA & XIAOMI Authorized Service Center</p>
+    </header>
+    
+    <section id="about">
+        <div class="content-wrapper">
+            <h2>ABOUT US</h2>
+            <p>✨ Odyssey Technologies: Authorized Expertise for Your Tech</p>
+            <p>We are dedicated to restoring your digital lifeline. As the Authorized Service Center for both MOTOROLA and XIAOMI, we ensure your smartphone is handled with the highest quality, genuine parts, and expert technical care.</p>
+            <p>Our commitment is built on Trust, Professionalism, and Performance, guaranteeing every repair is quick, reliable, and precise.</p>
+        </div>
+    </section>
+    
+    <section id="services">
+        <div class="content-wrapper">
+            <h2>OUR EXPERT SERVICES</h2>
+            <p>We provide brand-authorized, genuine repair solutions for optimal device performance.</p>
+            <div style="overflow-x:auto;">
+                <table class="service-table">
+                    <thead>
+                        <tr>
+                            <th>Brand</th>
+                            <th>Core Services</th>
+                            <th>Assurance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="brand-motorola">Motorola Smartphones</td>
+                            <td>Screen Replacement, Battery Repair, Software Updates</td>
+                            <td>Genuine Parts Guarantee & Factory Diagnostics</td>
+                        </tr>
+                        <tr>
+                            <td class="brand-xiaomi">Xiaomi Devices</td>
+                            <td>Parts Replacement, Deep Diagnostics, Component Fixes</td>
+                            <td>Fast Turnaround Time & Authorized Technical Support</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="service-cta-container">
+                <a href="https://miservicemanager.mi.com/public/#/create-appointment" target="_blank" class="cta-link btn-red">
+                    Book Xiaomi Repair Appointment
+                </a>
+                <a href="https://www.mi.com/in/product-list/phone-accessories/?srsltid=AfmBOoqsU0WQVub2wqAPkesNCRnF8hUiPuiaUOjf-oLKJLp7-c5doxfv" target="_blank" class="cta-link btn-orange">
+                    Explore Xiaomi Accessories
+                </a>
+                <a href="mailto:odysseyvastrapur@gmail.com" target="_blank" class="cta-link btn-red">
+                    Motorola Service Inquiry
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="content-wrapper">
+            <h2>CONTACT US</h2>
+            <ul class="contact-info-list">
+                <li><strong>Address:</strong> 115,116, GALA EMPIRE, OPP TV TOWER, DRIVE IN ROAD, THALTEJ - AHMEDABAD - 380054</li>
+                <li><strong>Phone:</strong> <a href="tel:+919558899665">+91-9558899665</a></li>
+                <li><strong>Email:</strong> <a href="mailto:odysseyvastrapur@gmail.com">odysseyvastrapur@gmail.com</a></li>
+            </ul>
+            
+            <div class="map-cta-container">
+                <a href="https://share.google/KZjF9Vr9nyeuXT4q5" target="_blank" class="cta-link btn-orange">View Location on Maps</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2023 Odyssey Technologies. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
