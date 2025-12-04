@@ -1,376 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Odyssey Technologies - Authorized Service Center</title>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- BRAND COLORS --- */
-        :root {
-            --color-black: #0D0D0D; 
-            --color-dark-grey: #1A1A1A;
-            --color-white: #FFFFFF;
-            --color-cool-grey: #BFBFBF; 
-            --color-silver: #C9C9C9; 
-            --accent-orange: #FF6900; 
-            --accent-red: #E50219; 
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Odyssey Technologies — Authorized Service Center (Motorola &amp; Xiaomi)</title>
+  <meta name="description" content="Odyssey Technologies — Authorized Motorola & Xiaomi service center in Ahmedabad. Genuine parts, fast turnaround and certified technicians." />
 
-        body { 
-            font-family: 'Source Sans Pro', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: var(--color-black);
-            color: var(--color-white);
-            line-height: 1.6;
-            position: relative; 
-            min-height: 100vh; 
-        }
-        
-        /* 🎨 ANIMATED BACKGROUND CONTAINER (Fixed) */
-        .animated-background {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -10; 
-            overflow: hidden; 
-            background-color: var(--color-black);
-        }
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-        /* Darker, Subtler Overlay */
-        .animated-background::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.2); 
-            z-index: -9; 
-        }
+  <style>
+    /* ------------------ ROOT VARIABLES ------------------ */
+    :root{
+      --bg-900:#070707;
+      --bg-800:#0f0f10;
+      --glass: rgba(255,255,255,0.04);
+      --glass-strong: rgba(255,255,255,0.06);
+      --muted: #c9c9c9;
+      --accent-xiaomi:#ff6a00; /* orange */
+      --accent-motorola:#e50017; /* red */
+      --white:#ffffff;
+      --radius:12px;
+      --container:1100px;
+      --shadow-lg: 0 10px 30px rgba(2,2,2,0.7);
+      --glass-border: rgba(255,255,255,0.06);
+    }
 
-        /* Animated Image/GIF Styles */
-        .animated-bg-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            
-            background-image: url('https://i.postimg.cc/xC5zXgWz/Gemini-Generated-Image-691o3n691o3n691o.png'); 
-            
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            opacity: 0.6; 
-            animation: panBackground 40s linear infinite; 
-        }
+    /* ------------------ BASIC RESET ------------------ */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,var(--bg-900), var(--bg-800));
+      color:var(--white);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      -webkit-tap-highlight-color:transparent;
+    }
 
-        @keyframes panBackground {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
+    /* ------------------ LAYOUT ------------------ */
+    .wrap{max-width:var(--container);margin:36px auto;padding:24px}
 
-        /* HEADER & FOOTER: Now highly transparent */
-        header, footer {
-            background: rgba(13, 13, 13, 0.05); 
-            padding: 20px 10px; 
-            text-align: center; 
-            animation: fadeInUp 1s ease-out; 
-            border-bottom: 2px solid var(--color-silver);
-            position: relative; 
-            z-index: 10;
-        }
-        footer { border-bottom: none; border-top: 1px solid var(--color-silver); margin-top: 20px;}
+    header.header{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      padding:16px 20px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);
+      backdrop-filter: blur(6px);
+    }
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent-xiaomi),var(--accent-motorola));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+    .brand h1{margin:0;font-size:1.15rem;letter-spacing:0.6px}
+    .brand p{margin:0;font-size:0.85rem;color:var(--muted)}
 
-        h1 {
-            font-size: 1.8em; 
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-top: 5px;
-            color: var(--color-white);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
-        }
-        header p {
-            font-size: 0.9em;
-            color: var(--color-cool-grey);
-            font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
-        }
-        
-        /* 🖼️ SECTIONS: Highly Transparent Background with Blur */
-        section { 
-            padding: 30px 20px; 
-            margin: 20px auto; 
-            max-width: 95%; 
-            position: relative; 
-            z-index: 5;
-        }
-        
-        /* Content Wrapper for Blur & Transparency */
-        .content-wrapper {
-            background: rgba(26, 26, 26, 0.05); 
-            backdrop-filter: blur(5px); 
-            border-radius: 8px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.7); 
-            border: 1px solid var(--color-silver);
-            padding: 20px; 
-            z-index: 2; 
-        }
-        
-        /* Apply text shadow to all main text elements for readability */
-        section p, section ul, section h2, .contact-info-list li {
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
-        }
-        
-        h2 { 
-            font-size: 1.5em;
-            color: var(--color-white); 
-            border-bottom: 1px solid var(--color-silver); 
-            padding-bottom: 8px;
-            margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        
-        .service-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            font-size: 0.9em;
-            display: block;
-            overflow-x: auto;
-        }
-        .service-table th, .service-table td {
-            padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255,255,255,0.2); 
-            min-width: 120px;
-        }
-        @media (max-width: 550px) {
-            .service-table th:last-child, 
-            .service-table td:last-child {
-                display: none; 
-            }
-        }
-        .service-table th {
-            background: rgba(13, 13, 13, 0.4); 
-            color: var(--color-white);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .brand-motorola { color: var(--accent-red); font-weight: bold; }
-        .brand-xiaomi { color: var(--accent-orange); font-weight: bold; }
-        
-        /* BUTTONS (CTAs) */
-        .service-cta-container {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            align-items: center; 
-        }
-        .map-cta-container {
-            margin-top: 25px;
-            display: flex;
-            justify-content: center; 
-        }
-        
-        button, .cta-link { 
-            width: 100%; 
-            max-width: 350px; 
-            color: var(--color-white); 
-            border: none; 
-            padding: 10px 20px; 
-            cursor: pointer; 
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-            border-radius: 6px; 
-            font-weight: bold; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-shadow: none; 
-        }
+    nav.actions{display:flex;gap:10px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid transparent;font-weight:600;text-decoration:none;color:var(--white);cursor:pointer}
+    .btn-appointment{background:linear-gradient(90deg,var(--accent-xiaomi),var(--accent-motorola));box-shadow:0 8px 24px rgba(255,90,60,0.12)}
+    .btn-whatsapp{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
 
-        /* Hover Styles */
-        .btn-orange { background: var(--accent-orange); }
-        .btn-red { background: #E50219; } 
-        .btn-orange:hover { 
-            background: #ff7d29;
-            transform: translateY(-3px) scale(1.02); 
-            box-shadow: 0 6px 15px rgba(255,105,0,0.4); 
-        }
-        .btn-red:hover { 
-            background: #ff293e;
-            transform: translateY(-3px) scale(1.02); 
-            box-shadow: 0 6px 15px rgba(229,2,25,0.4); 
-        }
+    /* ------------------ HERO ------------------ */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-top:22px;align-items:center}
 
-        /* CONTACT SECTION STYLING */
-        .contact-info-list {
-            list-style: none;
-            padding: 0;
-            margin-bottom: 20px;
-        }
-        .contact-info-list li {
-            padding: 8px 0;
-            color: var(--color-cool-grey);
-            border-bottom: 1px dashed rgba(201, 201, 201, 0.2);
-        }
-        .contact-info-list li:last-child {
-             border-bottom: none;
-        }
-        .contact-info-list strong {
-            display: inline-block;
-            width: 80px; 
-            color: var(--color-silver);
-            font-weight: 700;
-        }
-        
-        /* FOOTER */
-        footer { 
-            color: var(--color-cool-grey);
-            text-align: center; 
-            padding: 15px; 
-            border-top: 1px solid var(--color-silver);
-            margin-top: 20px;
-            font-size: 0.8em;
-            position: relative; 
-            z-index: 10;
-        }
-        a { 
-            color: var(--accent-orange); 
-            text-decoration: none; 
-            transition: color 0.3s ease;
-        }
-        a:hover { 
-            color: #ff984d; 
-        }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);padding:22px;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);backdrop-filter:blur(6px);
+    }
 
-        /* --- DESKTOP / TABLET OPTIMIZATION (min-width: 768px) --- */
-        @media (min-width: 768px) {
-            section { 
-                padding: 0; 
-            }
-            .content-wrapper {
-                padding: 40px; 
-            }
-            .service-table th:last-child, 
-            .service-table td:last-child {
-                display: table-cell; 
-            }
-            .service-table {
-                font-size: 1em;
-                display: table;
-                overflow-x: hidden;
-            }
-            .service-cta-container {
-                flex-direction: row;
-                justify-content: space-around;
-            }
-            button, .cta-link {
-                width: auto;
-                max-width: none; 
-            }
-        }
-        
-        /* Animation keyframes */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-    </style>
+    .hero h2{margin:0 0 8px 0;font-size:1.75rem}
+    .hero p.lead{margin:0;color:var(--muted)}
+
+    .quick-stats{display:flex;gap:12px;margin-top:16px}
+    .stat{flex:1;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;text-align:center}
+    .stat strong{display:block;font-size:1.05rem}
+    .stat span{display:block;color:var(--muted);font-size:0.84rem}
+
+    /* Right side card */
+    .contact-card{display:flex;flex-direction:column;gap:12px}
+    .contact-row{display:flex;gap:10px;align-items:center}
+    .contact-row svg{opacity:0.9}
+    .tel{font-weight:700}
+    .email{color:var(--muted);font-size:0.95rem}
+
+    /* ------------------ SERVICES GRID ------------------ */
+    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+    .service{padding:18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid var(--glass-border)}
+    .service h3{margin:0 0 10px 0}
+    .service p{margin:0;color:var(--muted);font-size:0.95rem}
+    .brand-pill{display:inline-block;padding:6px 8px;border-radius:999px;font-weight:700;font-size:0.78rem}
+    .pill-xiaomi{background:linear-gradient(90deg, rgba(255,106,0,0.12), rgba(255,106,0,0.06));color:var(--accent-xiaomi)}
+    .pill-moto{background:linear-gradient(90deg, rgba(229,0,23,0.12), rgba(229,0,23,0.06));color:var(--accent-motorola)}
+
+    /* ------------------ TABLE (desktop) ------------------ */
+    .service-table{width:100%;border-collapse:collapse;margin-top:10px}
+    .service-table th, .service-table td{padding:12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .service-table th{font-size:0.8rem;color:var(--muted);text-transform:uppercase}
+
+    /* ------------------ MAP & CONTACT SECTION ------------------ */
+    .map{height:320px;border-radius:10px;overflow:hidden;border:1px solid var(--glass-border)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+
+    /* ------------------ FOOTER ------------------ */
+    footer{margin-top:30px;padding:20px;border-radius:12px;border:1px solid var(--glass-border);text-align:center;color:var(--muted)}
+
+    /* ------------------ FLOATING WHATSAPP ------------------ */
+    .floating-ws{position:fixed;right:20px;bottom:20px;background:linear-gradient(180deg,var(--accent-xiaomi),var(--accent-motorola));padding:12px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:60}
+    .floating-ws a{color:#fff;text-decoration:none;font-weight:700}
+
+    /* ------------------ RESPONSIVE ------------------ */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .wrap{padding:16px;margin:18px}
+      .services{grid-template-columns:1fr}
+      header.header{flex-direction:column;align-items:flex-start}
+      .brand-logo{width:48px;height:48px}
+      .hero h2{font-size:1.35rem}
+      .contact-card{padding:12px}
+    }
+
+    /* small utility */
+    .muted{color:var(--muted)}
+    a.inline{color:var(--accent-xiaomi);text-decoration:none}
+
+  </style>
 </head>
 <body>
-    
-    <div class="animated-background">
-        <div class="animated-bg-image"></div>
-    </div>
 
-    <header>
-        <h1>ODYSSEY TECHNOLOGIES</h1>
-        <p>MOTOROLA & XIAOMI Authorized Service Center</p>
+  <div class="wrap">
+
+    <header class="header">
+      <div class="brand">
+        
+        <div>
+          <h1>Odyssey Technologies</h1>
+          <p>Authorized Service Center — Motorola &amp; Xiaomi</p>
+        </div>
+      </div>
+
+      <nav class="actions" aria-label="primary">
+        <a class="btn btn-whatsapp" href="tel:+919558899665">Call: +91-9558899665</a>
+        <a class="btn btn-whatsapp" href="mailto:odysseyvastrapur@gmail.com">Email Us</a>
+        <a class="btn btn-appointment" target="_blank" rel="noopener" href="https://miservicemanager.mi.com/public/#/create-appointment">Book Xiaomi Repair</a>
+      </nav>
     </header>
-    
-    <section id="about">
-        <div class="content-wrapper">
-            <h2>ABOUT US</h2>
-            <p>✨ Odyssey Technologies: Authorized Expertise for Your Tech</p>
-            <p>We are dedicated to restoring your digital lifeline. As the Authorized Service Center for both MOTOROLA and XIAOMI, we ensure your smartphone is handled with the highest quality, genuine parts, and expert technical care.</p>
-            <p>Our commitment is built on Trust, Professionalism, and Performance, guaranteeing every repair is quick, reliable, and precise.</p>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card">
+        <h2>Fast • Genuine Parts • Warranty</h2>
+        <p class="lead">We provide certified repairs using authorized parts for Motorola and Xiaomi devices. On-site diagnostics, quick turnaround and transparent pricing.</p>
+
+        <div class="quick-stats" aria-hidden>
+          <div class="stat">
+            <strong>Genuine Parts</strong>
+            <span>Authorized OEM components</span>
+          </div>
+          <div class="stat">
+            <strong>Same-day Repair</strong>
+            <span>Where possible</span>
+          </div>
+          <div class="stat">
+            <strong>Warranty</strong>
+            <span>Service-backed guarantee</span>
+          </div>
         </div>
-    </section>
-    
-    <section id="services">
-        <div class="content-wrapper">
-            <h2>OUR EXPERT SERVICES</h2>
-            <p>We provide brand-authorized, genuine repair solutions for optimal device performance.</p>
-            <div style="overflow-x:auto;">
-                <table class="service-table">
-                    <thead>
-                        <tr>
-                            <th>Brand</th>
-                            <th>Core Services</th>
-                            <th>Assurance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="brand-motorola">Motorola Smartphones</td>
-                            <td>Screen Replacement, Battery Repair, Software Updates</td>
-                            <td>Genuine Parts Guarantee & Factory Diagnostics</td>
-                        </tr>
-                        <tr>
-                            <td class="brand-xiaomi">Xiaomi Devices</td>
-                            <td>Parts Replacement, Deep Diagnostics, Component Fixes</td>
-                            <td>Fast Turnaround Time & Authorized Technical Support</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            
-            <div class="service-cta-container">
-                <a href="https://miservicemanager.mi.com/public/#/create-appointment" target="_blank" class="cta-link btn-red">
-                    Book Xiaomi Repair Appointment
-                </a>
-                <a href="https://www.mi.com/in/product-list/phone-accessories/?srsltid=AfmBOoqsU0WQVub2wqAPkesNCRnF8hUiPuiaUOjf-oLKJLp7-c5doxfv" target="_blank" class="cta-link btn-orange">
-                    Explore Xiaomi Accessories
-                </a>
-                <a href="mailto:odysseyvastrapur@gmail.com" target="_blank" class="cta-link btn-red">
-                    Motorola Service Inquiry
-                </a>
-            </div>
+
+        <div style="margin-top:18px">
+          <h3 style="margin:0 0 8px 0">Popular Services</h3>
+          <table class="service-table" role="table">
+            <thead>
+              <tr><th>Brand</th><th>Service</th><th>Assurance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Motorola</td><td>Screen replacement, Battery repair, Camera fixes</td><td>Factory diagnostics &amp; OEM parts</td></tr>
+              <tr><td>Xiaomi</td><td>Parts replacement, Firmware repair, Component-level service</td><td>Fast turnaround &amp; authorized support</td></tr>
+            </tbody>
+          </table>
         </div>
+
+      </div>
+
+      <aside class="card contact-card" aria-labelledby="contact-heading">
+        <h3 id="contact-heading">Contact &amp; Location</h3>
+
+        <div class="contact-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="12" cy="9" r="2.2" fill="currentColor" />
+          </svg>
+          <div>
+            <div class="muted">Address</div>
+            <div>115,116, GALA EMPIRE, OPP TV TOWER, DRIVE IN ROAD, THALTEJ — AHMEDABAD — 380054</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91c1.54 3.04 4 5.5 7.04 7.04l1.55-1.8a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <div class="muted">Phone</div>
+            <div class="tel"><a href="tel:+919558899665" class="inline">+91-9558899665</a></div>
+            <div class="email">Mon–Sat, 10:00 — 19:00</div>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <div class="muted">Email</div>
+            <div><a class="inline" href="mailto:odysseyvastrapur@gmail.com">odysseyvastrapur@gmail.com</a></div>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:10px">
+          <a class="btn btn-appointment" target="_blank" rel="noopener" href="https://miservicemanager.mi.com/public/#/create-appointment">Book Xiaomi Repair</a>
+          <a class="btn btn-whatsapp" href="mailto:odysseyvastrapur@gmail.com">Service Inquiry</a>
+        </div>
+
+      </aside>
     </section>
-    
-    <section id="contact">
-        <div class="content-wrapper">
-            <h2>CONTACT US</h2>
-            <ul class="contact-info-list">
-                <li><strong>Address:</strong> 115,116, GALA EMPIRE, OPP TV TOWER, DRIVE IN ROAD, THALTEJ - AHMEDABAD - 380054</li>
-                <li><strong>Phone:</strong> <a href="tel:+919558899665">+91-9558899665</a></li>
-                <li><strong>Email:</strong> <a href="mailto:odysseyvastrapur@gmail.com">odysseyvastrapur@gmail.com</a></li>
+
+    <!-- SERVICES -->
+    <section>
+      <div class="card">
+        <h2 style="margin:0 0 12px 0">Our Services</h2>
+        <p class="muted" style="margin-top:0">Authorized repair, component-level expertise and software support.</p>
+
+        <div class="services" style="margin-top:16px">
+          <div class="service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3>Screen &amp; Display</h3>
+              <span class="brand-pill pill-moto">Motorola</span>
+            </div>
+            <p>Genuine display replacements, touch repairs and calibration. Fast diagnostics and quality testing.</p>
+          </div>
+
+          <div class="service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3>Battery &amp; Power</h3>
+              <span class="brand-pill pill-xiaomi">Xiaomi</span>
+            </div>
+            <p>Battery health checks, replacements and power-management fixes with OEM batteries.</p>
+          </div>
+
+          <div class="service">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <h3>Software &amp; Firmware</h3>
+              <span class="brand-pill pill-xiaomi">Both</span>
+            </div>
+            <p>System updates, firmware flashing, boot-loop recovery and secure data handling.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MAP & MORE CONTACT -->
+    <section style="margin-top:16px">
+      <div class="card">
+        <h2 style="margin:0 0 12px 0">Visit Us</h2>
+        <div class="contact-grid">
+          <div>
+            <div class="map" role="img" aria-label="Map showing Odyssey Technologies location">
+              <!-- User previously used a share link. For production replace the iframe src with a proper Google Maps Embed URL. -->
+              <iframe width="100%" height="100%" frameborder="0" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Thaltej+Ahmedabad&output=embed"></iframe>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="margin-top:0">Drop-in or Schedule</h3>
+            <p class="muted">We accept walk-ins but recommend booking for faster service. Bring your ID and device proof of purchase if possible.</p>
+
+            <ul style="margin-top:12px;padding-left:16px;color:var(--muted)">
+              <li>Free initial diagnostic</li>
+              <li>Transparent estimates before any repair</li>
+              <li>Optional pick-up &amp; delivery (inquire for availability)</li>
             </ul>
-            
-            <div class="map-cta-container">
-                <a href="https://share.google/KZjF9Vr9nyeuXT4q5" target="_blank" class="cta-link btn-orange">View Location on Maps</a>
+
+            <div style="margin-top:14px">
+              <a class="btn btn-appointment" target="_blank" rel="noopener" href="https://miservicemanager.mi.com/public/#/create-appointment">Book an Appointment</a>
             </div>
+
+            <div style="margin-top:12px;color:var(--muted)">
+              <strong>Address</strong><br>
+              115,116, GALA EMPIRE, OPP TV TOWER, DRIVE IN ROAD, THALTEJ — AHMEDABAD — 380054
+            </div>
+
+          </div>
         </div>
+      </div>
     </section>
-    
+
     <footer>
-        <p>© 2023 Odyssey Technologies. All rights reserved. | <a href="#">Privacy Policy</a></p>
+      <div style="max-width:900px;margin:0 auto">
+        <div>© <strong>Odyssey Technologies</strong> — Authorized Service Centre for Motorola &amp; Xiaomi</div>
+        <div style="margin-top:6px" class="muted">Designed for clarity, speed and conversions. Need edits? Click the WhatsApp button.</div>
+      </div>
     </footer>
+
+    <!-- TERMS & CONDITIONS -->
+    <section>
+      <div class="card">
+        <h2 style="margin:0 0 12px 0">Terms & Conditions of Service</h2>
+        <p class="muted">Please read carefully before submitting your device for service.</p>
+        <ol style="margin-top:14px; line-height:1.55; color:var(--muted)">
+          <li>Odyssey Technologies (Motorola Authorized Service Center) is bound by Motorola’s Manufacturer Limited Warranty (MLW).</li>
+          <li>The service center is not responsible for any data loss. Customers must take a full backup before submitting the device.</li>
+          <li>Screen protectors may be removed during repair; the service center is not liable for the same.</li>
+          <li>No device is accepted without the customer’s signature on the job sheet.</li>
+          <li>The device will only be returned upon submission of the original, duly signed job sheet copy.</li>
+          <li>Warranty eligibility is subject to technical verification for liquid/physical damage or unauthorized repairs. Proof of purchase may be required.</li>
+          <li>Repairs on non-warranty devices are covered by a 30-day service warranty, excluding liquid/physical damage.</li>
+          <li>Charges for non-warranty repairs are as per Motorola’s recommended pricing.</li>
+          <li>Initial estimates are provisional and may change post detailed inspection.</li>
+          <li>If the final estimate is not approved within 7 days, the device must be collected in “as-is” condition.</li>
+          <li>Service turnaround time is usually 10 days but may extend due to parts shortage or complex issues.</li>
+          <li>Customers must collect their device within 14 days of written intimation.</li>
+          <li>Devices not collected within 45 days may be auctioned to recover service and storage charges.</li>
+          <li>Delays due to force majeure events (natural calamities, strikes, emergencies, etc.) are not the responsibility of the service center.</li>
+          <li>Any disputes will be resolved through arbitration appointed by the service center.</li>
+          <li>These terms supersede all previous verbal or written communications unless otherwise stated in writing.</li>
+          <li>Customer confirms the authenticity of submitted information and permits follow-up communication via call/SMS.</li>
+          <li>By signing the job sheet, the customer agrees to all above terms.</li>
+        </ol>
+       
+    </section>
+
+  </div>
+
+  <!-- FLOATING WHATSAPP -->
+  <div class="floating-ws" aria-hidden>
+    <a href="https://wa.me/919558899665" target="_blank" rel="noopener">WhatsApp Us</a>
+  </div>
+
+  <!-- Minimal JS for small UX improvements -->
+  <script>
+    // Progressive enhancement: attach tel/email click tracking (if analytics added later)
+    (function(){
+      // nothing intrusive — placeholder for later analytics
+    })();
+  </script>
+
 </body>
 </html>
