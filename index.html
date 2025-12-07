@@ -1,354 +1,1088 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Odyssey Technologies — Authorized Service Center (Motorola &amp; Xiaomi)</title>
-  <meta name="description" content="Odyssey Technologies — Authorized Motorola & Xiaomi service center in Ahmedabad. Genuine parts, fast turnaround and certified technicians." />
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Odyssey Technologies — Motorola & Xiaomi Authorized Service Center</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Odyssey Technologies — Motorola & Xiaomi Authorized Service Center in Ahmedabad. Genuine parts, warranty support, fast and transparent service."
+  />
 
   <style>
-    /* ------------------ ROOT VARIABLES ------------------ */
-    :root{
-      --bg-900:#070707;
-      --bg-800:#0f0f10;
-      --glass: rgba(255,255,255,0.04);
-      --glass-strong: rgba(255,255,255,0.06);
-      --muted: #c9c9c9;
-      --accent-xiaomi:#ff6a00; /* orange */
-      --accent-motorola:#e50017; /* red */
-      --white:#ffffff;
-      --radius:12px;
-      --container:1100px;
-      --shadow-lg: 0 10px 30px rgba(2,2,2,0.7);
-      --glass-border: rgba(255,255,255,0.06);
+    :root {
+      --primary: #0054ff;
+      --primary-soft: #e6eeff;
+      --accent: #00b894;
+      --warning: #ffb300;
+      --danger: #e53935;
+      --bg: #f3f5fb;
+      --bg-soft: #ffffff;
+      --text: #1a1c23;
+      --muted: #646b82;
+      --border-soft: #d7ddf0;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+      --radius-lg: 20px;
+      --radius-full: 999px;
     }
 
-    /* ------------------ BASIC RESET ------------------ */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: linear-gradient(180deg,var(--bg-900), var(--bg-800));
-      color:var(--white);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      -webkit-tap-highlight-color:transparent;
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    /* ------------------ LAYOUT ------------------ */
-    .wrap{max-width:var(--container);margin:36px auto;padding:24px}
-
-    header.header{
-      display:flex;align-items:center;justify-content:space-between;gap:16px;
-      background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:16px 20px;border-radius:14px;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);
-      backdrop-filter: blur(6px);
-    }
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand-logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--accent-xiaomi),var(--accent-motorola));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
-    .brand h1{margin:0;font-size:1.15rem;letter-spacing:0.6px}
-    .brand p{margin:0;font-size:0.85rem;color:var(--muted)}
-
-    nav.actions{display:flex;gap:10px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;border:1px solid transparent;font-weight:600;text-decoration:none;color:var(--white);cursor:pointer}
-    .btn-appointment{background:linear-gradient(90deg,var(--accent-xiaomi),var(--accent-motorola));box-shadow:0 8px 24px rgba(255,90,60,0.12)}
-    .btn-whatsapp{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
-
-    /* ------------------ HERO ------------------ */
-    .hero{display:grid;grid-template-columns:1fr 380px;gap:24px;margin-top:22px;align-items:center}
-
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:var(--radius);padding:22px;border:1px solid var(--glass-border);box-shadow:var(--shadow-lg);backdrop-filter:blur(6px);
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f4ff 0, #f8f9ff 40%, #f3f5fb 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      animation: fadeInBody 0.5s ease-out;
     }
 
-    .hero h2{margin:0 0 8px 0;font-size:1.75rem}
-    .hero p.lead{margin:0;color:var(--muted)}
-
-    .quick-stats{display:flex;gap:12px;margin-top:16px}
-    .stat{flex:1;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;text-align:center}
-    .stat strong{display:block;font-size:1.05rem}
-    .stat span{display:block;color:var(--muted);font-size:0.84rem}
-
-    /* Right side card */
-    .contact-card{display:flex;flex-direction:column;gap:12px}
-    .contact-row{display:flex;gap:10px;align-items:center}
-    .contact-row svg{opacity:0.9}
-    .tel{font-weight:700}
-    .email{color:var(--muted);font-size:0.95rem}
-
-    /* ------------------ SERVICES GRID ------------------ */
-    .services{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
-    .service{padding:18px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));border:1px solid var(--glass-border)}
-    .service h3{margin:0 0 10px 0}
-    .service p{margin:0;color:var(--muted);font-size:0.95rem}
-    .brand-pill{display:inline-block;padding:6px 8px;border-radius:999px;font-weight:700;font-size:0.78rem}
-    .pill-xiaomi{background:linear-gradient(90deg, rgba(255,106,0,0.12), rgba(255,106,0,0.06));color:var(--accent-xiaomi)}
-    .pill-moto{background:linear-gradient(90deg, rgba(229,0,23,0.12), rgba(229,0,23,0.06));color:var(--accent-motorola)}
-
-    /* ------------------ TABLE (desktop) ------------------ */
-    .service-table{width:100%;border-collapse:collapse;margin-top:10px}
-    .service-table th, .service-table td{padding:12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .service-table th{font-size:0.8rem;color:var(--muted);text-transform:uppercase}
-
-    /* ------------------ MAP & CONTACT SECTION ------------------ */
-    .map{height:320px;border-radius:10px;overflow:hidden;border:1px solid var(--glass-border)}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
-
-    /* ------------------ FOOTER ------------------ */
-    footer{margin-top:30px;padding:20px;border-radius:12px;border:1px solid var(--glass-border);text-align:center;color:var(--muted)}
-
-    /* ------------------ FLOATING WHATSAPP ------------------ */
-    .floating-ws{position:fixed;right:20px;bottom:20px;background:linear-gradient(180deg,var(--accent-xiaomi),var(--accent-motorola));padding:12px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.5);z-index:60}
-    .floating-ws a{color:#fff;text-decoration:none;font-weight:700}
-
-    /* ------------------ RESPONSIVE ------------------ */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .services{grid-template-columns:repeat(2,1fr)}
-      .contact-grid{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      .wrap{padding:16px;margin:18px}
-      .services{grid-template-columns:1fr}
-      header.header{flex-direction:column;align-items:flex-start}
-      .brand-logo{width:48px;height:48px}
-      .hero h2{font-size:1.35rem}
-      .contact-card{padding:12px}
+    a {
+      color: var(--primary);
+      text-decoration: none;
     }
 
-    /* small utility */
-    .muted{color:var(--muted)}
-    a.inline{color:var(--accent-xiaomi);text-decoration:none}
+    a:hover {
+      text-decoration: underline;
+    }
 
+    /* Animations */
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: translateY(6px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes floatUp {
+      from { opacity: 0; transform: translateY(16px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes softPulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 84, 255, 0.35); }
+      70% { box-shadow: 0 0 0 14px rgba(0, 84, 255, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 84, 255, 0); }
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to right,
+        rgba(248, 250, 255, 0.9),
+        rgba(243, 245, 251, 0.92)
+      );
+      border-bottom: 1px solid rgba(208, 214, 235, 0.8);
+    }
+
+    .nav-bar {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.7rem 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-block {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .brand-main {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .logo-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: #ffffff;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.03);
+      overflow: hidden;
+    }
+
+    .logo-chip img {
+      width: 80%;
+      height: auto;
+      display: block;
+    }
+
+    .logo-chip-round {
+      border-radius: 50%;
+    }
+
+    .brand-text-main {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .brand-logos-row {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-left: 0.25rem;
+      padding-left: 0.7rem;
+      border-left: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .brand-logos-row span {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      color: #4b5563;
+      padding: 0.28rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(148, 163, 184, 0.55);
+      background: rgba(255, 255, 255, 0.9);
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .nav-links .primary-link {
+      border-color: rgba(0, 84, 255, 0.2);
+      background: rgba(0, 84, 255, 0.07);
+      color: #0b1a4a;
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 1.3rem auto 2.8rem;
+      padding: 0 1.1rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.2fr);
+      gap: 1.5rem;
+      margin-bottom: 2.1rem;
+      animation: floatUp 0.6s ease-out;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #ffffff, #f3f6ff);
+      border-radius: 26px;
+      padding: 1.5rem 1.4rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(59, 130, 246, 0.18), transparent 55%),
+        radial-gradient(circle at 100% 0, rgba(16, 185, 129, 0.16), transparent 55%);
+      opacity: 0.65;
+      z-index: -1;
+    }
+
+    .hero-pill-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.26rem;
+      background: rgba(15, 23, 42, 0.06);
+      border-radius: 999px;
+      margin-bottom: 0.65rem;
+    }
+
+    .hero-pill {
+      font-size: 0.72rem;
+      padding: 0.12rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.86);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-pill.badge-green {
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #047857;
+    }
+
+    .hero-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.8rem, 2.35vw + 1.3rem, 2.5rem);
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+      color: #050816;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-highlight-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-chip {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.62rem 1.2rem;
+      border-radius: var(--radius-full);
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.17s ease, box-shadow 0.17s ease, background 0.17s ease, color 0.17s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 12px 22px rgba(37, 99, 235, 0.45);
+      animation: softPulse 2.2s ease-out 0.4s infinite;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 16px 28px rgba(37, 99, 235, 0.55);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.98);
+      color: #0b1a4a;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .btn-outline:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(148, 163, 184, 0.4);
+    }
+
+    .btn-whatsapp {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 12px 24px rgba(16, 185, 129, 0.5);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 16px 30px rgba(16, 185, 129, 0.6);
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta strong {
+      color: #111827;
+    }
+
+    .hero-side {
+      background: rgba(15, 23, 42, 0.93);
+      color: #e5e7f5;
+      border-radius: 24px;
+      padding: 1.25rem 1.25rem 1.3rem;
+      box-shadow: 0 14px 36px rgba(15, 23, 42, 0.75);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-side::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0, rgba(129, 140, 248, 0.3), transparent 60%),
+        radial-gradient(circle at 90% 90%, rgba(45, 212, 191, 0.3), transparent 55%);
+      opacity: 0.65;
+      z-index: -1;
+    }
+
+    .hero-side-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-side-heading h3 {
+      font-size: 1rem;
+    }
+
+    .hero-side-tag {
+      font-size: 0.72rem;
+      padding: 0.18rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.76);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .hero-side-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ade80;
+    }
+
+    .key-points {
+      list-style: none;
+      font-size: 0.86rem;
+      margin-top: 0.4rem;
+    }
+
+    .key-points li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .key-points li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #a5b4fc;
+    }
+
+    .hero-side-footer {
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+      color: #cbd5f5;
+    }
+
+    h2.section-title {
+      font-size: 1.25rem;
+      margin: 1.8rem 0 0.6rem;
+      color: #020617;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    @media (max-width: 960px) {
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 640px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid rgba(209, 213, 219, 0.8);
+      box-shadow: 0 10px 26px rgba(148, 163, 184, 0.16);
+      font-size: 0.9rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), transparent 25%, transparent 60%, rgba(16, 185, 129, 0.14));
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 18px 38px rgba(15, 23, 42, 0.18);
+      background: #ffffff;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.28rem;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.22rem 0.7rem;
+      border-radius: var(--radius-full);
+      background: var(--primary-soft);
+      color: #1d4ed8;
+      margin-bottom: 0.45rem;
+    }
+
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #2563eb;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr);
+      gap: 1.1rem;
+      margin-top: 0.1rem;
+    }
+
+    @media (max-width: 880px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .contact-item {
+      margin-bottom: 0.55rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-label {
+      font-weight: 600;
+    }
+
+    .terms {
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 1.2rem 1.1rem 1.4rem;
+      margin-top: 0.8rem;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      box-shadow: 0 18px 42px rgba(148, 163, 184, 0.25);
+      font-size: 0.9rem;
+    }
+
+    .terms h3 {
+      font-size: 1.02rem;
+      margin: 0.4rem 0 0.35rem;
+    }
+
+    .terms-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.65rem;
+    }
+
+    .terms-list {
+      margin-left: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .terms-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-danger {
+      color: var(--danger);
+      font-weight: 600;
+    }
+
+    footer {
+      border-top: 1px solid rgba(203, 213, 225, 0.9);
+      padding: 1rem 1.1rem 1.2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-align: center;
+      background: #f8fafc;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 1.1rem;
+      bottom: 1.1rem;
+      z-index: 30;
+    }
+
+    .floating-whatsapp a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.85);
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .floating-whatsapp a:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 24px 46px rgba(16, 185, 129, 0.95);
+      text-decoration: none;
+    }
+
+    .floating-whatsapp .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #bbf7d0;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 640px) {
+      .nav-bar {
+        justify-content: center;
+        text-align: center;
+      }
+      .brand-block {
+        width: 100%;
+        justify-content: center;
+      }
+      .brand-sub {
+        display: block;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .hero-card {
+        padding: 1.3rem 1.15rem 1.2rem;
+      }
+      .hero-actions {
+        justify-content: flex-start;
+      }
+      .floating-whatsapp a span.label-text {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
-
-  <div class="wrap">
-
-    <header class="header">
-      <div class="brand">
-        
+  <!-- Header -->
+  <header>
+    <div class="nav-bar">
+      <div class="brand-block">
         <div>
-          <h1>Odyssey Technologies</h1>
-          <p>Authorized Service Center — Motorola &amp; Xiaomi</p>
+          <div class="brand-main">
+            <div class="logo-chip">
+              <img
+                src="https://companieslogo.com/img/orig/XIACF-9058dc7f.png?t=1720244494"
+                alt="Xiaomi logo"
+              />
+            </div>
+            <div class="logo-chip logo-chip-round">
+              <img
+                src="https://vectorseek.com/wp-content/uploads/2021/01/Motorola-Logo-Vector.png"
+                alt="Motorola logo"
+              />
+            </div>
+            <span class="brand-text-main">Odyssey Technologies</span>
+          </div>
+          <div class="brand-sub">
+            Authorized Service Center &mdash; Motorola &amp; Xiaomi
+          </div>
+        </div>
+
+        <div class="brand-logos-row">
+          <span>OEM Parts</span>
+          <span>Warranty Support</span>
         </div>
       </div>
 
-      <nav class="actions" aria-label="primary">
-        <a class="btn btn-whatsapp" href="tel:+919558899665">Call: +91-9558899665</a>
-        <a class="btn btn-whatsapp" href="mailto:odysseyvastrapur@gmail.com">Email Us</a>
-        <a class="btn btn-appointment" target="_blank" rel="noopener" href="https://miservicemanager.mi.com/public/#/create-appointment">Book Xiaomi Repair</a>
+      <nav class="nav-links">
+        <a href="#services" class="primary-link">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#visit">Visit Us</a>
+        <a href="#terms">Terms &amp; Conditions</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="card">
-        <h2>Fast • Genuine Parts • Warranty</h2>
-        <p class="lead">We provide certified repairs using authorized parts for Motorola and Xiaomi devices. On-site diagnostics, quick turnaround and transparent pricing.</p>
-
-        <div class="quick-stats" aria-hidden>
-          <div class="stat">
-            <strong>Genuine Parts</strong>
-            <span>Authorized OEM components</span>
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero-card">
+        <div class="hero-pill-row">
+          <div class="hero-pill badge-green">
+            <span class="hero-pill-dot"></span>
+            Premium Authorized Repair
           </div>
-          <div class="stat">
-            <strong>Same-day Repair</strong>
-            <span>Where possible</span>
-          </div>
-          <div class="stat">
-            <strong>Warranty</strong>
-            <span>Service-backed guarantee</span>
+          <div class="hero-pill">
+            Motorola &amp; Xiaomi Devices
           </div>
         </div>
 
-        <div style="margin-top:18px">
-          <h3 style="margin:0 0 8px 0">Popular Services</h3>
-          <table class="service-table" role="table">
-            <thead>
-              <tr><th>Brand</th><th>Service</th><th>Assurance</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Motorola</td><td>Screen replacement, Battery repair, Camera fixes</td><td>Factory diagnostics &amp; OEM parts</td></tr>
-              <tr><td>Xiaomi</td><td>Parts replacement, Firmware repair, Component-level service</td><td>Fast turnaround &amp; authorized support</td></tr>
-            </tbody>
-          </table>
+        <h1>Fast, Genuine &amp; Transparent Service</h1>
+        <p class="hero-subtitle">
+          One service center for <strong>both Motorola and Xiaomi</strong> smartphones &mdash;
+          genuine OEM parts, expert diagnostics and repairs as per official Manufacturer Limited
+          Warranty (MLW) and OEM policies.
+        </p>
+
+        <div class="hero-highlight-row">
+          <span class="hero-chip">OEM Parts Only</span>
+          <span class="hero-chip">Trained Technicians</span>
+          <span class="hero-chip">Same Service Standards for Both Brands</span>
         </div>
 
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="tel:+919558899665">
+            Call Us: +91&nbsp;95588&nbsp;99665
+          </a>
+          <a
+            class="btn btn-whatsapp"
+            href="https://wa.me/919558899665"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </a>
+          <a
+            class="btn btn-outline"
+            href="https://miservicemanager.mi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Xiaomi Repair
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <strong>Timings:</strong> Mon&ndash;Sat, 10:00 AM &ndash; 7:00 PM &nbsp;&bull;&nbsp;
+          <strong>Note:</strong> Data backup is customer’s responsibility before submitting device.
+        </div>
       </div>
 
-      <aside class="card contact-card" aria-labelledby="contact-heading">
-        <h3 id="contact-heading">Contact &amp; Location</h3>
-
-        <div class="contact-row">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="12" cy="9" r="2.2" fill="currentColor" />
-          </svg>
-          <div>
-            <div class="muted">Address</div>
-            <div>115,116, GALA EMPIRE, OPP TV TOWER, DRIVE IN ROAD, THALTEJ — AHMEDABAD — 380054</div>
+      <aside class="hero-side">
+        <div class="hero-side-heading">
+          <h3>Quick Service Snapshot</h3>
+          <div class="hero-side-tag">
+            <span class="hero-side-tag-dot"></span>
+            Live Queue &amp; Updates
           </div>
         </div>
-
-        <div class="contact-row">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.86 19.86 0 0 1-3.07-8.63A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.78 3.53a2 2 0 0 1-.45 2.11L8.09 11.91c1.54 3.04 4 5.5 7.04 7.04l1.55-1.8a2 2 0 0 1 2.11-.45c1.13.4 2.32.66 3.53.78A2 2 0 0 1 22 16.92z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div>
-            <div class="muted">Phone</div>
-            <div class="tel"><a href="tel:+919558899665" class="inline">+91-9558899665</a></div>
-            <div class="email">Mon–Sat, 10:00 — 19:00</div>
-          </div>
+        <ul class="key-points">
+          <li>
+            Same repair standards &amp; service quality for
+            <strong>Motorola and Xiaomi</strong> (OEM policies followed).
+          </li>
+          <li>
+            Warranty confirmed only after
+            <strong>technical inspection</strong> for liquid / physical damage &amp; prior repair.
+          </li>
+          <li>
+            Non-warranty repairs carry up to
+            <strong>30 days service warranty</strong> for the same issue / part (no damage / tampering).
+          </li>
+          <li>
+            Job sheet signature is mandatory for
+            <strong>accepting and releasing</strong> any device.
+          </li>
+        </ul>
+        <div class="hero-side-footer">
+          Track status or get estimate clarification via call / SMS / WhatsApp on your registered
+          mobile number.
         </div>
-
-        <div class="contact-row">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-            <path d="M4 4h16v16H4z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div>
-            <div class="muted">Email</div>
-            <div><a class="inline" href="mailto:odysseyvastrapur@gmail.com">odysseyvastrapur@gmail.com</a></div>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:8px;margin-top:10px">
-          <a class="btn btn-appointment" target="_blank" rel="noopener" href="https://miservicemanager.mi.com/public/#/create-appointment">Book Xiaomi Repair</a>
-          <a class="btn btn-whatsapp" href="mailto:odysseyvastrapur@gmail.com">Service Inquiry</a>
-        </div>
-
       </aside>
     </section>
 
-    <!-- SERVICES -->
-    <section>
-      <div class="card">
-        <h2 style="margin:0 0 12px 0">Our Services</h2>
-        <p class="muted" style="margin-top:0">Authorized repair, component-level expertise and software support.</p>
+    <!-- Services -->
+    <section id="services">
+      <h2 class="section-title">Services for Motorola &amp; Xiaomi Devices</h2>
+      <p class="section-subtitle">
+        The <strong>same types of repairs</strong> and checks are available for both Motorola and Xiaomi
+        phones. Brand ke hisaab se policy alag ho sakti hai, lekin service category dono ke liye ek jaisi hai.
+      </p>
 
-        <div class="services" style="margin-top:16px">
-          <div class="service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3>Screen &amp; Display</h3>
-              <span class="brand-pill pill-moto">Motorola</span>
-            </div>
-            <p>Genuine display replacements, touch repairs and calibration. Fast diagnostics and quality testing.</p>
+      <div class="grid">
+        <article class="card">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Display &amp; Touch
           </div>
+          <h3>Screen &amp; Touch Solutions</h3>
+          <p>
+            Genuine display module replacement, touch calibration and panel fitting as per OEM
+            standards. Applicable for <strong>both Motorola and Xiaomi</strong> devices.
+          </p>
+        </article>
 
-          <div class="service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3>Battery &amp; Power</h3>
-              <span class="brand-pill pill-xiaomi">Xiaomi</span>
-            </div>
-            <p>Battery health checks, replacements and power-management fixes with OEM batteries.</p>
+        <article class="card">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Battery &amp; Power
           </div>
+          <h3>Battery / Charging Issues</h3>
+          <p>
+            OEM battery replacement, device not powering on, fast-charging issues and motherboard
+            level power checks with proper safety testing.
+          </p>
+        </article>
 
-          <div class="service">
-            <div style="display:flex;align-items:center;justify-content:space-between">
-              <h3>Software &amp; Firmware</h3>
-              <span class="brand-pill pill-xiaomi">Both</span>
-            </div>
-            <p>System updates, firmware flashing, boot-loop recovery and secure data handling.</p>
+        <article class="card">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Software
           </div>
-        </div>
+          <h3>Software &amp; OS Support</h3>
+          <p>
+            System updates, firmware flashing, boot-loop recovery, stuck-on-logo and performance
+            issues, all handled as per Motorola / Xiaomi tools and guidelines.
+          </p>
+        </article>
 
+        <article class="card">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Diagnostics
+          </div>
+          <h3>Technical Inspection</h3>
+          <p>
+            Complete health check for physical / liquid damage, previous unauthorized repair and
+            internal faults to decide warranty or paid repair route.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Non-Warranty
+          </div>
+          <h3>Paid Repairs</h3>
+          <p>
+            Out-of-warranty or physical damage cases with
+            <strong>transparent estimate</strong>, OEM recommended pricing (where applicable) and proper
+            documentation on the job sheet.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Support
+          </div>
+          <h3>Guidance &amp; Updates</h3>
+          <p>
+            Clarity on warranty policy, extended warranty / insurance, claim guidance and simple
+            explanation of technical findings in Hindi / English as per customer comfort.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- MAP & MORE CONTACT -->
-    <section style="margin-top:16px">
-      <div class="card">
-        <h2 style="margin:0 0 12px 0">Visit Us</h2>
-        <div class="contact-grid">
-          <div>
-            <div class="map" role="img" aria-label="Map showing Odyssey Technologies location">
-              <!-- User previously used a share link. For production replace the iframe src with a proper Google Maps Embed URL. -->
-              <iframe width="100%" height="100%" frameborder="0" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps?q=Thaltej+Ahmedabad&output=embed"></iframe>
-            </div>
-          </div>
+    <!-- Contact & Visit -->
+    <section id="contact">
+      <h2 class="section-title">Contact &amp; Visit</h2>
+      <p class="section-subtitle">
+        Service status, new job sheet, estimate approval ya general query ke liye aap hume call / WhatsApp kar sakte
+        hain.
+      </p>
 
-          <div>
-            <h3 style="margin-top:0">Drop-in or Schedule</h3>
-            <p class="muted">We accept walk-ins but recommend booking for faster service. Bring your ID and device proof of purchase if possible.</p>
+      <div class="contact-grid">
+        <div class="card">
+          <h3>Contact Details</h3>
+          <p class="contact-item">
+            <span class="contact-label">Odyssey Technologies</span><br />
+            Motorola &amp; Xiaomi Authorized Service Center
+          </p>
 
-            <ul style="margin-top:12px;padding-left:16px;color:var(--muted)">
-              <li>Free initial diagnostic</li>
-              <li>Transparent estimates before any repair</li>
-              <li>Optional pick-up &amp; delivery (inquire for availability)</li>
-            </ul>
+          <p class="contact-item">
+            <span class="contact-label">Phone:</span>
+            <a href="tel:+919558899665">+91&nbsp;95588&nbsp;99665</a>
+          </p>
 
-            <div style="margin-top:14px">
-              <a class="btn btn-appointment" target="_blank" rel="noopener" href="https://miservicemanager.mi.com/public/#/create-appointment">Book an Appointment</a>
-            </div>
+          <p class="contact-item">
+            <span class="contact-label">Email:</span>
+            <a href="mailto:odysseyvastrapur@gmail.com">odysseyvastrapur@gmail.com</a>
+          </p>
 
-            <div style="margin-top:12px;color:var(--muted)">
-              <strong>Address</strong><br>
-              115,116, GALA EMPIRE, OPP TV TOWER, DRIVE IN ROAD, THALTEJ — AHMEDABAD — 380054
-            </div>
+          <p class="contact-item">
+            <span class="contact-label">Working Hours:</span><br />
+            Monday &ndash; Saturday: 10:00 AM to 7:00 PM<br />
+            Sunday: Closed (brand specific special drives ke according change ho sakta hai)
+          </p>
+        </div>
 
-          </div>
+        <div class="card" id="visit">
+          <h3>Service Center Address</h3>
+          <p class="contact-item">
+            115,116, GALA EMPIRE,<br />
+            Opp. TV Tower, Drive In Road, Thaltej,<br />
+            Ahmedabad &ndash; 380054, Gujarat, India
+          </p>
+
+          <p class="contact-item muted">
+            Device submit karte waqt please ye cheezein saath laayein:
+          </p>
+          <ul class="key-points">
+            <li>Original device (and SIM removed, if possible).</li>
+            <li>Valid bill / invoice for in-warranty claims.</li>
+            <li>
+              Government ID proof agar brand / policy ke hisaab se required ho.
+            </li>
+          </ul>
+
+          <p class="muted" style="margin-top:0.6rem;">
+            Xiaomi customers yahan se online booking kar sakte hain:
+            <a
+              href="https://miservicemanager.mi.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              miservicemanager.mi.com
+            </a>
+          </p>
         </div>
       </div>
     </section>
 
-    <footer>
-      <div style="max-width:900px;margin:0 auto">
-        <div>© <strong>Odyssey Technologies</strong> — Authorized Service Centre for Motorola &amp; Xiaomi</div>
-        <div style="margin-top:6px" class="muted">Designed for clarity, speed and conversions. Need edits? Click the WhatsApp button.</div>
-      </div>
-    </footer>
+    <!-- Terms & Conditions -->
+    <section id="terms">
+      <h2 class="section-title">Terms &amp; Conditions of Service</h2>
+      <p class="section-subtitle">
+        Device submit karne se pehle कृपया ye points dhyaan se padhein. Job sheet par sign karne ka
+        matlab hai ki aap in terms se सहमत hain.
+      </p>
 
-    <!-- TERMS & CONDITIONS -->
-    <section>
-      <div class="card">
-        <h2 style="margin:0 0 12px 0">Terms & Conditions of Service</h2>
-        <p class="muted">Please read carefully before submitting your device for service.</p>
-        <ol style="margin-top:14px; line-height:1.55; color:var(--muted)">
-          <li>Odyssey Technologies (Motorola Authorized Service Center) is bound by Motorola’s Manufacturer Limited Warranty (MLW).</li>
-          <li>The service center is not responsible for any data loss. Customers must take a full backup before submitting the device.</li>
-          <li>Screen protectors may be removed during repair; the service center is not liable for the same.</li>
-          <li>No device is accepted without the customer’s signature on the job sheet.</li>
-          <li>The device will only be returned upon submission of the original, duly signed job sheet copy.</li>
-          <li>Warranty eligibility is subject to technical verification for liquid/physical damage or unauthorized repairs. Proof of purchase may be required.</li>
-          <li>Repairs on non-warranty devices are covered by a 30-day service warranty, excluding liquid/physical damage.</li>
-          <li>Charges for non-warranty repairs are as per Motorola’s recommended pricing.</li>
-          <li>Initial estimates are provisional and may change post detailed inspection.</li>
-          <li>If the final estimate is not approved within 7 days, the device must be collected in “as-is” condition.</li>
-          <li>Service turnaround time is usually 10 days but may extend due to parts shortage or complex issues.</li>
-          <li>Customers must collect their device within 14 days of written intimation.</li>
-          <li>Devices not collected within 45 days may be auctioned to recover service and storage charges.</li>
-          <li>Delays due to force majeure events (natural calamities, strikes, emergencies, etc.) are not the responsibility of the service center.</li>
-          <li>Any disputes will be resolved through arbitration appointed by the service center.</li>
-          <li>These terms supersede all previous verbal or written communications unless otherwise stated in writing.</li>
-          <li>Customer confirms the authenticity of submitted information and permits follow-up communication via call/SMS.</li>
-          <li>By signing the job sheet, the customer agrees to all above terms.</li>
+      <div class="terms">
+        <h3>1. Warranty &amp; Brand Policy</h3>
+        <p class="terms-note">
+          Saare repairs respective manufacturer ke official policy ke hisaab se kiye jaate hain.
+        </p>
+        <ol class="terms-list">
+          <li>
+            Odyssey Technologies (Motorola Authorized Service Center) Motorola ki
+            <strong>Manufacturer Limited Warranty (MLW)</strong> ke rules follow karta hai.
+          </li>
+          <li>
+            Xiaomi devices ka service <strong>Mi Authorized Service</strong> guidelines aur OEM warranty policy ke
+            mutabik hota hai.
+          </li>
+          <li>
+            Warranty eligibility hamesha <strong>technical verification</strong> ke baad decide hoti hai
+            (liquid / physical damage ya unauthorized repair check kiya jaata hai). Proof of purchase mangi
+            ja sakti hai.
+          </li>
         </ol>
-       
+
+        <h3>2. Data, Backup &amp; Screen Protectors</h3>
+        <ol class="terms-list" start="4">
+          <li>
+            Service center kisi bhi <strong>data loss</strong> (photos, contacts, apps, files, etc.) ke liye
+            responsible nahi hoga. Device submit karne se pehle
+            <strong>complete backup lena customer ki responsibility hai</strong>. Service ke dauraan software update,
+            format ya part change ki wajah se data erase ho sakta hai.
+          </li>
+          <li>
+            Screen protector / tempered glass / skins diagnosis ya repair ke dauraan remove karne pad sakte hain.
+            Inka damage hone par service center <strong>liable nahi</strong> hoga.
+          </li>
+        </ol>
+
+        <h3>3. Job Sheet, Handover &amp; Collection</h3>
+        <ol class="terms-list" start="6">
+          <li>Job sheet par customer ke sign ke bina koi bhi device accept nahi kiya jaayega.</li>
+          <li>
+            Device sirf <strong>original signed job sheet copy</strong> return karne par hi handover kiya
+            jaayega. Special cases me valid ID &amp; verification mangi ja sakti hai.
+          </li>
+          <li>
+            Final estimate agar communication ke 7 din ke andar approve nahi hota, to device
+            <em>"as-is"</em> condition me collect karna hoga (agar applicable hua to diagnostic / minimal service
+            charges lag sakte hain).
+          </li>
+          <li>
+            Jab written intimation (SMS / call / WhatsApp ya physical intimation) diya jaata hai ki
+            device ready hai, to customer ko <strong>14 din</strong> ke andar device collect karna hoga.
+          </li>
+          <li>
+            Written intimation ke <strong>45 din</strong> ke andar device collect na karne par, device ko
+            <strong>auction / dispose</strong> karke service &amp; storage charges recover kiye jaa sakte hain. Aise
+            case me data / accessories recover nahi ho paayenge.
+          </li>
+        </ol>
+
+        <h3>4. Estimates, Charges &amp; Service Warranty</h3>
+        <ol class="terms-list" start="11">
+          <li>
+            Initial estimate provisional hota hai. Detailed inspection ke baad ya additional fault milne par
+            ye change ho sakta hai. Revised estimate customer ko inform karke hi proceed kiya jaayega.
+          </li>
+          <li>
+            Non-warranty repairs ka amount OEM ke <strong>recommended pricing</strong> ke mutabik hota hai, aur
+            applicable taxes (GST etc.) alag se lag sakte hain.
+          </li>
+          <li>
+            <strong>Non-warranty devices</strong> par ki gayi repair par aam taur par
+            <strong>30 days service warranty</strong> milti hai, jo sirf
+            <em>same issue &amp; same part</em> ke liye valid hai. Isme koi bhi liquid / physical / accidental damage
+            ya delivery ke baad ki tampering cover nahi hoti.
+          </li>
+          <li>
+            Normal service turnaround time lagbhag <strong>10 din</strong> hota hai, lekin parts shortage, logistics,
+            OEM approval ya complex technical issue ki wajah se ye time badh bhi sakta hai.
+          </li>
+        </ol>
+
+        <h3>5. Liability, Force Majeure &amp; Disputes</h3>
+        <ol class="terms-list" start="15">
+          <li>
+            Natural calamity, strike, lockdown, emergency, server / network outage ya kisi bhi
+            <strong>force majeure</strong> reason se hone wali delay ke liye service center responsible nahi hoga.
+          </li>
+          <li>
+            Agar koi dispute mutually resolve nahi hota, to wo
+            <strong>arbitration</strong> ke through handle kiya jaayega, jisme arbitrator service center dwara
+            good faith me appoint kiya jaayega, as per applicable law.
+          </li>
+          <li>
+            Ye terms pehle diye gaye saare verbal ya written communication ko supersede karte hain, jab tak
+            job sheet ya official document par specifically kuch aur mention na ho.
+          </li>
+        </ol>
+
+        <h3>6. Customer Declarations &amp; Communication</h3>
+        <ol class="terms-list" start="18">
+          <li>
+            Customer yeh declare karta hai ki di gayi saari information (naam, contact, device details,
+            purchase proof, issue description, etc.) sahi hai.
+          </li>
+          <li>
+            Customer service center ko authorize karta hai ki wo unke registered number par
+            <strong>call, SMS aur WhatsApp</strong> ke through service updates, approvals aur feedback ke liye
+            contact kare.
+          </li>
+          <li>
+            Job sheet par sign karke customer confirm karta hai ki usne upar diye gaye
+            saare <strong>Terms &amp; Conditions</strong> padhe, samjhe aur accept kiye hain.
+          </li>
+        </ol>
+
+        <p class="terms-note">
+          <span class="highlight-danger">Note:</span>
+          Brand ke special campaigns, extended warranty ya OEM offers (agar koi ho) unke official
+          SMS / email / invoice terms ke mutabik honge. Yahan diye gaye terms general service process ke liye hain.
+        </p>
+      </div>
     </section>
+  </main>
 
+  <!-- Floating WhatsApp -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/919558899665" target="_blank" rel="noopener noreferrer">
+      <span class="dot"></span>
+      <span>WhatsApp</span>
+      <span class="label-text">Odyssey Technologies</span>
+    </a>
   </div>
 
-  <!-- FLOATING WHATSAPP -->
-  <div class="floating-ws" aria-hidden>
-    <a href="https://wa.me/919558899665" target="_blank" rel="noopener">WhatsApp Us</a>
-  </div>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      © <span id="year"></span> Odyssey Technologies &mdash; Motorola &amp; Xiaomi Authorized Service Center.
+      All rights reserved.
+    </div>
+  </footer>
 
-  <!-- Minimal JS for small UX improvements -->
   <script>
-    // Progressive enhancement: attach tel/email click tracking (if analytics added later)
-    (function(){
-      // nothing intrusive — placeholder for later analytics
-    })();
+    // current year
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-
 </body>
 </html>
